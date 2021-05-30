@@ -34,6 +34,7 @@ void CalculateAverage();
 void StringArrayTests();
 void MultiDimensionalArrays();
 void integerTypes();
+void operatorShortcuts();
 
 //Variable declarations
 float input_data[3] = {2.30f, 8.96f, 12.62f}; //This is how to declare an array in C++
@@ -48,7 +49,7 @@ int main()
 	StringArrayTests();
 }
 
-
+//Example of using an array and a foreach loop
 void CalculateAverage()
 {
 	//Changing of array element
@@ -69,6 +70,7 @@ void CalculateAverage()
 	cout << "\nAverage: " << average;
 }
 
+//Various string and char array operation examples
 void StringArrayTests()
 {
 	//Initialization of char array with escape character at the end
@@ -94,6 +96,7 @@ void StringArrayTests()
 	cout << "\n\n Does the array Match? 0 = True : " << strcmp(name,"Carl is here!");
 }
 
+//Decleration and changing of arrays in a multidimensional array
 void MultiDimensionalArrays()
 {
 	int matrix[2][2] =
@@ -108,6 +111,7 @@ void MultiDimensionalArrays()
 	matrix[1][1] = 31;
 }
 
+//Code block to show various examples of integers; no actual functionality
 void integerTypes()
 {
 	//Useful table for datatype sizes and range available at https://www.geeksforgeeks.org/c-data-types/
@@ -121,4 +125,42 @@ void integerTypes()
 
 	//The use of unsigned numbers allows the range to be doubled in the positive numbers whilst eliminating negative values
 	unsigned short int doubledShort;
+}
+
+//Example of typical reference declaration
+void referenceExample() 
+{
+	int itemCount;
+	int& totalItems = itemCount; //The use of & at the beginning of the variable name declares this as a reference
+
+	//Personal Note: I don't see their being a huge number of uses for this functionality but perhaps I haven't stumbled across it yet.
+}
+
+//Exploration of operator shortcuts
+void operatorShortcuts()
+{
+	int totalAmount = 3;
+
+	//Addition of 1 to variable
+	++totalAmount; //increments before processing the current statement
+	totalAmount++; //increments after processing the current statement
+
+	//Subtraction of 1 to variable
+	--totalAmount; //decrements before processing the current statement
+	totalAmount--; //decrements after processing the current statement
+
+	//Addition Shorthand
+	totalAmount += 2;
+
+	//Subtraction Shorthand
+	totalAmount -= 2;
+
+	//Multiplication Shorthand
+	totalAmount *= 2;
+
+	//Division Shorthand
+	totalAmount /= 2;
+
+	//Modulus Shorthand
+	totalAmount %= 2;
 }
