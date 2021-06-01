@@ -234,6 +234,39 @@ void exerciseFour()
 {
     cout << "\n\nExercise Four:\n";
 
+    double changeAmount;
+    cout << "Please enter the change amount (Less than $1.00):";
+    cin >> changeAmount;
+
+    //Ensure change amount is less than $1.00
+    if (changeAmount < 1) {
+
+        //Quarter = 25c
+        int quarters = changeAmount / 0.25;
+
+        //Subtract amount of quarters out of change total then pass to next step and repeat for each coin
+        changeAmount -= (0.25 * quarters);
+
+        //Dimes = 10c
+        int dimes = changeAmount / 0.1;
+        changeAmount -= (0.1 * dimes);
+
+        //Nickles = 5c
+        int nickles = changeAmount / 0.05;
+        changeAmount -= (0.05 * nickles);
+
+        //Pennies = 1c
+        int pennies = changeAmount / 0.01;
+
+        cout << "Change is as follows:";
+        cout << "\nQuarters: " << quarters;
+        cout << "\nDimes: " << dimes;
+        cout << "\nNickles: " << nickles;
+        cout << "\nPennies: " << pennies << "\n";
+    }
+    else {
+        cout << "That value is greater than $1.00.";
+    }
 }
 
 
@@ -241,6 +274,19 @@ void exerciseFour()
 void exerciseFive()
 {
     cout << "\n\nExercise Five:\n";
+    
+    //Get year as int since it will always be a whole number
+    int year;
+    cout << "Please Enter Year: ";
+    cin >> year;
+
+    //Check is year can be divided by 4 without remainder AND not be divided by 100 OR can be divided by 400
+    if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
+        cout << "\nThe entered year is a leap year!\n";
+    }
+    else {
+        cout << "\nThe entered year is not a leap year!\n";
+    }
 
 }
 
@@ -250,5 +296,31 @@ void exerciseFive()
 void exerciseSix()
 {
     cout << "\n\nExercise Sixe:\n";
+    const int OVERTIME_START = 40;
+    const double OVERTIME_MULTIPLIER = 1.5;
 
+    int hours; //Assuming employees are only paid for full hours
+    double hourlyWage;
+    double totalWages = 0.0;
+
+    cout << "Please enter hours worked: ";
+    cin >> hours;
+
+    cout << "\nPlease enter hourly wage:";
+    cin >> hourlyWage;
+
+    //Check if hours exceed 40 hours
+    if (hours > OVERTIME_START) {
+        //Find first 40 hours of normal time wages
+        totalWages = OVERTIME_START * hourlyWage;
+
+        //Get additional hours and include multiplier to hourly wage
+        totalWages += (hours - OVERTIME_START) * (hourlyWage * OVERTIME_MULTIPLIER);
+    }
+    else {
+        //Calculation of total wages
+        totalWages = hours * hourlyWage;
+    }
+
+    cout << "\nYour total wages are as follows: $" << totalWages << "\n";
 }
